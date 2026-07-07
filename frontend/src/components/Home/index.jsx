@@ -68,7 +68,7 @@ const Home = () => {
                 <input type="file" ref={fileRef} onChange={onSetFileInput} />
                 <button type="submit">Analyse</button>
             </form>
-            {submissionErrMsg && <p style={{color: "red",fontSize: "13px",margin: "5px"}}>{submissionErrMsg}</p>}
+            {submissionErrMsg && <p className="submisson-err-msg">{submissionErrMsg}</p>}
         </div>
         
     )

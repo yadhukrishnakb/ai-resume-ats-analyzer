@@ -72,6 +72,12 @@ button:hover {
   color: white;
 }
 
+.submisson-err-msg{
+  color: red;
+  font-size: 13px;
+  margin: 5px;
+}
+
 @media (max-width: 568px) {
   form{
     flex-direction: column;
@@ -84,5 +90,13 @@ button:hover {
     margin-top: 10px;
     margin-left: 10px;
     margin-right: 10px;
+  }
+  .submisson-err-msg{
+    font-size: 10px;
+    margin: 0px;
+    padding-bottom: 35px;
+  }
+  .input-form-container{
+    padding-top: 30px;
   }
 }
