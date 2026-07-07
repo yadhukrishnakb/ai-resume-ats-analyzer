@@ -1,0 +1,26 @@
+.analysis-report-container{
+    border: 1px solid silver;
+    border-radius: 10px;
+    text-align: left;
+    padding: 20px;
+}
+.analysis-result-heading{
+    font-size: 20px;
+    margin: 0px;
+    color: silver;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+.title{
+    margin-bottom: 0px;
+    margin-top: 5px;
+    color: white;
+    font-size: 15px;
+}
+.list{
+    margin-top: 0px;
+}
+.button-container{
+    display: flex;
+    justify-content: center;
+}

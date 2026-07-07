@@ -1,0 +1,88 @@
+.bg-container{
+    background-color: black;
+    min-height: 100vh;
+    padding: 30px;
+}
+.content-container{
+    border: 2px solid greenyellow;
+    border-radius: 20px;
+    height: 100%;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-bottom: 30px;
+}
+.heading{
+    font-size: 30px;
+    color: greenyellow;
+    margin-bottom: 10px;
+}
+.line{
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
+.input-form-container{
+    border: 2px solid greenyellow;
+    border-radius: 10px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+input[type="file"] {
+  border: 1px solid yellowgreen;
+  padding: 10px;
+  border-radius: 8px;
+  color: white;
+}
+input[type="file"]::file-selector-button {
+  background: black;
+  color: white;
+  border: 1px solid yellowgreen;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+input[type="file"]::file-selector-button:hover {
+  background: yellowgreen;
+  color: white;
+}
+form{
+    display: flex;
+    gap: 10px;
+}
+
+button {
+  padding: 12px 24px;
+  border: 1px solid yellowgreen;
+  border-radius: 8px;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+  background-color: yellowgreen;
+  color: white;
+}
+
+@media (max-width: 568px) {
+  form{
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding-bottom: 10px;
+  }
+  input[type="file"]{
+    padding: 0px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
