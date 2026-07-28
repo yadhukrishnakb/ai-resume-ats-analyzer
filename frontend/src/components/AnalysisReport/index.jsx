@@ -18,28 +18,76 @@ const AnalysisReport = ({data,analyseAnother}) => {
         analyseAnother()
     }
 
-    const getList = (list) => (
-        <ul className="list">
-            {list.map(each => <li key={each}>{each}</li>)}
-        </ul>
-    )
-    return(
-        <div className="analysis-report-container">
-            <h1 className="analysis-result-heading">Analysis Result</h1>
-            <p className="title">Overall Score: <span style={{color: scoreColor(),fontWeight:"bold"}}>{overallScore}</span>/100</p>
-            <p className="title">Missing Keywords:</p>
-            {getList(missingKeywords)}
-            <p className="title">Strengths: </p>
-            {getList(strengths)}
-            <p className="title">Suggestions: </p>
-            {getList(suggestions)}
-            <p className="title">Weaknesses: </p>
-            {getList(weaknesses)}
-            <div className="button-container">
-                <button type="button"  onClick={onClickAnalyseAnother}>Analyse Another</button>
+    const getList = (title, list, icon) => (
+    <div className="report-card">
+        <div className="card-title">
+            <span className="card-icon">{icon}</span>
+            <h3>{title}</h3>
+        </div>
+
+        {list.length > 0 ? (
+            <ul className="report-list">
+                {list.map(item => (
+                    <li key={item}>{item}</li>
+                ))}
+            </ul>
+        ) : (
+            <p className="empty-text">No issues found.</p>
+        )}
+    </div>
+)
+
+    return (
+    <div className="analysis-report-container">
+
+        <h1 className="analysis-result-heading">
+            📊 Resume Analysis Report
+        </h1>
+
+        <div className="score-card">
+            <h2>ATS Score</h2>
+
+            <div
+                className="score"
+                style={{ color: scoreColor() }}
+            >
+                {overallScore}
+                <span>/100</span>
+            </div>
+
+            <div className="progress-bar">
+                <div
+                    className="progress"
+                    style={{
+                        width: `${overallScore}%`,
+                        backgroundColor: scoreColor()
+                    }}
+                ></div>
             </div>
         </div>
-    )
+
+        <div className="report-grid">
+
+            {getList("Missing Keywords", missingKeywords, "🔍")}
+
+            {getList("Strengths", strengths, "✅")}
+
+            {getList("Suggestions", suggestions, "💡")}
+
+            {getList("Weaknesses", weaknesses, "⚠️")}
+
+        </div>
+
+        <button
+            className="analyse-again-btn"
+            type="button"
+            onClick={onClickAnalyseAnother}
+        >
+            🔄 Analyze Another Resume
+        </button>
+
+    </div>
+)
 }
 
 export default AnalysisReport

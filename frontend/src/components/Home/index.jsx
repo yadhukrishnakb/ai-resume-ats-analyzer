@@ -64,12 +64,52 @@ const Home = () => {
 
     const renderForm = () => (
         <div className="input-form-container">
-            <form onSubmit={onSubmitForm}>
-                <input type="file" ref={fileRef} onChange={onSetFileInput} />
-                <button type="submit">Analyse</button>
-            </form>
-            {submissionErrMsg && <p className="submisson-err-msg">{submissionErrMsg}</p>}
-        </div>
+    <form onSubmit={onSubmitForm} className="upload-form">
+
+        <label htmlFor="resume" className="upload-box">
+            <div className="upload-icon">📄</div>
+
+            <h3>Upload Your Resume</h3>
+
+            <p>
+                PDF files only
+            </p>
+
+            <span className="browse-btn">
+                Choose File
+            </span>
+
+            <input
+                id="resume"
+                type="file"
+                ref={fileRef}
+                onChange={onSetFileInput}
+                accept=".pdf"
+                hidden
+            />
+            
+        </label>
+        {fileInput && (
+    <p className="selected-file">
+        📄 {fileInput.name}
+    </p>
+)}
+
+        <button
+            className="analyse-btn"
+            type="submit"
+        >
+            🚀 Analyze Resume
+        </button>
+
+        {submissionErrMsg && (
+            <p className="submission-err-msg">
+                {submissionErrMsg}
+            </p>
+        )}
+
+    </form>
+</div>
         
     )
 
@@ -78,14 +118,44 @@ const Home = () => {
     }
 
     const renderLoader = () => (
-        <p>Loading....</p>
+         <div className="loading-container">
+        <div className="loader"></div>
+
+        <h2>Analyzing Resume...</h2>
+
+        <p>
+            AI is reviewing your resume against ATS standards.
+            This may take a few seconds.
+        </p>
+    </div>
     )
 
     const renderFailure = () =>{
-        return <>
-        <p>{responseErrMsg}</p>
-        <button type="button" style={{marginTop: "10px"}} onClick={analyseAnother}>Back</button>
-        </>
+        return (
+            <div className="error-container">
+
+    <div className="error-icon">
+        ⚠️
+    </div>
+
+    <h2 className="error-heading">
+        Something Went Wrong
+    </h2>
+
+    <p className="error-message">
+        {responseErrMsg}
+    </p>
+
+    <button
+        type="button"
+        className="back-btn"
+        onClick={analyseAnother}
+    >
+        ← Back to Upload
+    </button>
+
+</div>
+        )
     }
 
     const renderContent = () => {
@@ -103,12 +173,42 @@ const Home = () => {
 
     return(
         <div className="bg-container">
-            <div className="content-container">
-                <h1 className="heading">ATS Resume Analyzer</h1>
-                <p className="line">'No Login. No Registration. Just Upload & Analyze ⭐'</p>
-                {isFormSubmitted ? renderContent() : renderForm()}
-            </div>
-        </div>
+  <div className="background-blur"></div>
+
+  <div className="content-container">
+    <div className="hero">
+      <div className="logo">
+        📄
+      </div>
+
+      <h1 className="heading">
+        ATS Resume Analyzer
+      </h1>
+
+      <p className="line">
+        No Login • No Registration • Upload Your Resume & Get Instant AI Feedback ⭐
+      </p>
+    </div>
+
+    <div className="card">
+      {isFormSubmitted ? renderContent() : renderForm()}
+    </div>
+
+    <div className="features">
+      <div className="feature">
+        ⚡ Instant Analysis
+      </div>
+
+      <div className="feature">
+        🤖 AI Powered
+      </div>
+
+      <div className="feature">
+        🔒 Secure & Private
+      </div>
+    </div>
+  </div>
+</div>
     )
 }
 
