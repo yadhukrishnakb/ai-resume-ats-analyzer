@@ -182,7 +182,7 @@ const Home = () => {
       </div>
 
       <h1 className="heading">
-        ATS Resume Analyzer
+        AI ATS Resume Analyzer
       </h1>
 
       <p className="line">
